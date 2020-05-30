@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  StanfordC193P
 //
-//  Created by Eason Hsu S on 2020/5/29.
+//  Created by Eason Hsu on 2020/5/29.
 //  Copyright © 2020 Eason Hsu. All rights reserved.
 //
 
