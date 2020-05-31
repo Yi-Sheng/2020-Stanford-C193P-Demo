@@ -11,7 +11,7 @@ import SwiftUI
 
 // 屬於 Functional Programming
 
-struct ContentView: View {
+struct ContentView_Lecture1: View {
     
     // body 就像是樂高的集合，裡面有很多 View 就像一個一個積木一樣。
     // body 不存在於記憶體當中，屬於 Computing Properties，當有存取到這個值時就會執行大括弧內的內容。
@@ -140,41 +140,22 @@ struct ContentView: View {
         // 修改 CardView 的內容，建立一個變數能夠判斷卡牌要正面朝上還是背面朝上
         HStack {
         ForEach(0..<4, content: { index in
-            CardView(isFaceUp: true)
+            CardView_Lecture1(isFaceUp: true)
             })
         }
             .padding()
             .foregroundColor(.orange)
             .font(.largeTitle)
-        
-        
-        
-        
-        
-        
-        
         }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-struct ContentView_Previews: PreviewProvider {
+struct ContentView_Lecture1_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView_Lecture1()
     }
 }
 
-struct CardView: View {
+struct CardView_Lecture1: View {
     
     var isFaceUp: Bool
     var body: some View {
