@@ -8,6 +8,17 @@
 
 import SwiftUI
 
+// Note:
+
+// MVVM：Model-View-ViewModel
+/*
+ Model：不會導入 SwiftUI。用來處理資料以及邏輯運算。Model is "The truth"
+ View：反映模型，資料會從 Model 再到 View 去呈現。View 是沒有狀態的。View 是 Declarative(聲明式的)。View 是被動的，只有 Model 改變時 View 才會變化
+ ViewModel：作用是將 View 綁定到 Model 上。若 Model 發生改變，ViewModel 會發布訊息，而有訂閱接收訊息的 View 會根據發布的內容進行改變，改變的內容是透過 ViewModel 取得，並不會碰到 Model。會處理使用者的 Intent(意圖)，當 View 的按鈕改變時會呼叫 Intent Function。ViewModel 是一個 Class。
+ 
+ */
+
+
 struct ContentView_Lecture2: View {
     var body: some View {
         
