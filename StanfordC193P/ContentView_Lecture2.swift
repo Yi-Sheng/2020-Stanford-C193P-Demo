@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ContentView_Lecture2.swift
 //  StanfordC193P
 //
 //  Created by Yi-Sheng Hsu on 2020/5/31.
@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView_Lecture2: View {
     var body: some View {
+        
         HStack {
         ForEach(0..<4, content: { index in
             CardView_Lecture2(isFaceUp: true)
