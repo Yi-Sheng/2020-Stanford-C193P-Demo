@@ -20,6 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
+        
+        // 改變 contentView 的實體可以選擇對應的單元
         let contentView = ContentView_Lecture2()
 
         // Use a UIHostingController as window root view controller.
