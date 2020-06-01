@@ -22,7 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
         
         // 改變 contentView 的實體可以選擇對應的單元
-        let contentView = ContentView_Lecture2()
+//        let contentView = ContentView_Lecture2()
+        
+        // Lecture 2 內容
+        let game = EmojiMemoryGame()
+        let contentView = ContentView_Lecture2(viewModel: game)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
