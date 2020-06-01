@@ -18,14 +18,110 @@ import SwiftUI
  
  */
 
+// 這裡是 MVVM 的 View
+
+// Step 1:
+
+//struct ContentView_Lecture2: View {
+//    var body: some View {
+//
+//        HStack {
+//        ForEach(0..<4, content: { index in
+//            CardView_Lecture2(isFaceUp: true)
+//            })
+//        }
+//            .padding()
+//            .foregroundColor(.orange)
+//            .font(.largeTitle)
+//    }
+//}
+//
+//struct ContentView_Lecture2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView_Lecture2()
+//    }
+//}
+//
+//struct CardView_Lecture2: View {
+//
+//    var isFaceUp: Bool
+//    var body: some View {
+//        ZStack {
+//
+//            if isFaceUp {
+//                RoundedRectangle(cornerRadius: 10.0)
+//                    .fill(Color.white)
+//                RoundedRectangle(cornerRadius: 10.0)
+//                    .stroke(lineWidth: 3)
+//                Text("🧘").font(.largeTitle)
+//            } else {
+//                RoundedRectangle(cornerRadius: 10.0)
+//                .fill()
+//            }
+//
+//        }
+//    }
+//}
+
+// Step 2:
+
+//struct ContentView_Lecture2: View {
+//
+//    var viewModel: EmojiMemoryGame
+//    var body: some View {
+//
+//        HStack {
+//            ForEach(viewModel.cards, content: { card in
+//                CardView_Lecture2(card: card)
+//            })
+//        }
+//            .padding()
+//            .foregroundColor(.orange)
+//            .font(.largeTitle)
+//    }
+//}
+//
+//struct ContentView_Lecture2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView_Lecture2(viewModel: EmojiMemoryGame())
+//    }
+//}
+//
+//struct CardView_Lecture2: View {
+//
+//    var card: MemoryGame<String>.Card
+//    var body: some View {
+//        ZStack {
+//
+//            if card.isFaceUp {
+//                RoundedRectangle(cornerRadius: 10.0)
+//                    .fill(Color.white)
+//                RoundedRectangle(cornerRadius: 10.0)
+//                    .stroke(lineWidth: 3)
+//                Text(card.content)
+//            } else {
+//                RoundedRectangle(cornerRadius: 10.0)
+//                .fill()
+//            }
+//
+//        }
+//    }
+//}
+
+// Step 3:
 
 struct ContentView_Lecture2: View {
+    
+    var viewModel: EmojiMemoryGame
     var body: some View {
         
         HStack {
-        ForEach(0..<4, content: { index in
-            CardView_Lecture2(isFaceUp: true)
-            })
+            ForEach(viewModel.cards) { card in
+                CardView_Lecture2(card: card).onTapGesture {
+                    
+                    self.viewModel.choose(card: card)
+                }
+            }
         }
             .padding()
             .foregroundColor(.orange)
@@ -35,22 +131,22 @@ struct ContentView_Lecture2: View {
 
 struct ContentView_Lecture2_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView_Lecture2()
+        ContentView_Lecture2(viewModel: EmojiMemoryGame())
     }
 }
 
 struct CardView_Lecture2: View {
     
-    var isFaceUp: Bool
+    var card: MemoryGame<String>.Card
     var body: some View {
         ZStack {
             
-            if isFaceUp {
+            if card.isFaceUp {
                 RoundedRectangle(cornerRadius: 10.0)
                     .fill(Color.white)
                 RoundedRectangle(cornerRadius: 10.0)
                     .stroke(lineWidth: 3)
-                Text("🧘").font(.largeTitle)
+                Text(card.content)
             } else {
                 RoundedRectangle(cornerRadius: 10.0)
                 .fill()
